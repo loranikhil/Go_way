@@ -4,6 +4,7 @@ import './App.css';
 import SignUp from './Components/SignUp';
 import UserDetails from './Components/UserDetails';
 import UserRegistration from './Components/UserRegistration';
+import Login from './Components/Login';
 
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/Login" element={<Login />} />
           <Route path="/user-details" element={<UserDetails />} />
           {/* <Route path="/login" element={<div className="placeholder-page">Login Page (Placeholder)</div>} /> */}
           <Route path="/" element={<Navigate to="/signup" replace />} />
