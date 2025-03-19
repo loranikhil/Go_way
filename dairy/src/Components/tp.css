@@ -1,0 +1,378 @@
+/* SignUp.css */
+/* Modern, professional sign-up form with pastel theme */
+
+:root {
+    --primary-color: #a3c9b2; /* Light sage green */
+    --secondary-color: #f9d7d2; /* Light peach */
+    --accent-color: #e3e8e7; /* Light gray */
+    --text-color: #4a4a4a;
+    --error-color: #e74c3c;
+    --success-color: #27ae60;
+    --shadow-color: rgba(0, 0, 0, 0.08);
+    --input-border: #e0e0e0;
+    --input-bg: #fafafa;
+    --overlay-opacity: 0.7;
+  }
+  
+  .signup-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background-color: #fff;
+    font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+    color: var(--text-color);
+  }
+  
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    padding: 2rem 0 1rem;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .app-logo {
+    width: 150px;
+    text-align: center;
+  }
+  
+  .app-logo img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .form-wrapper {
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+    padding: 1.5rem;
+    border-radius: 16px;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 10px 25px var(--shadow-color);
+    position: relative;
+    z-index: 2;
+  }
+  
+  .form-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .form-header h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+  }
+  
+  .form-header p {
+    color: #777;
+    font-size: 1rem;
+  }
+  
+  .signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.2rem;
+  }
+  
+  .form-group label {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-color);
+  }
+  
+  .input-group {
+    display: flex;
+    position: relative;
+    width: 100%;
+  }
+  
+  .country-code {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    padding: 0 0.8rem;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border: 1px solid var(--input-border);
+    border-right: none;
+    font-size: 0.9rem;
+  }
+  
+  input[type="tel"],
+  input[type="text"],
+  input[type="password"] {
+    flex: 1;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--input-border);
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: var(--input-bg);
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .input-group input[type="tel"] {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  
+  input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(163, 201, 178, 0.2);
+  }
+  
+  input:disabled {
+    background-color: #f0f0f0;
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+  
+  .btn-send-otp,
+  .btn-verify-otp,
+  .btn-resend-otp-inline {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .btn-send-otp:hover,
+  .btn-verify-otp:hover,
+  .btn-resend-otp-inline:hover {
+    background-color: #8db8a1;
+    transform: translateY(-50%) scale(1.02);
+  }
+  
+  .btn-send-otp:active,
+  .btn-verify-otp:active,
+  .btn-resend-otp-inline:active {
+    transform: translateY(-50%) scale(0.98);
+  }
+  
+  .btn-resend-otp-inline {
+    background-color: #b3b3b3;
+  }
+  
+  .btn-signup {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn-signup:hover {
+    background-color: #8db8a1;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn-signup:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn-signup:disabled {
+    background-color: #c0c0c0;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+  
+  .verified-badge {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--success-color);
+    color: white;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+  }
+  
+  .error {
+    color: var(--error-color);
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
+    display: block;
+  }
+  
+  .password-hint,
+  .otp-hint {
+    color: #777;
+    font-size: 0.75rem;
+    margin-top: 0.3rem;
+    display: block;
+  }
+  
+  .login-option {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .login-option a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+  }
+  
+  .login-option a:hover {
+    color: #729e87;
+    text-decoration: underline;
+  }
+  
+  /* Animated background */
+  .animated-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+  
+  .color-overlay {
+    position: absolute;
+    border-radius: 50%;
+    opacity: var(--overlay-opacity);
+  }
+  
+  .color-overlay-1 {
+    top: -15%;
+    right: -10%;
+    width: 50vw;
+    height: 50vw;
+    background-color: var(--secondary-color);
+    animation: float1 15s infinite ease-in-out;
+  }
+  
+  .color-overlay-2 {
+    bottom: -20%;
+    left: -15%;
+    width: 60vw;
+    height: 60vw;
+    background-color: var(--primary-color);
+    animation: float2 18s infinite ease-in-out;
+  }
+  
+  .color-overlay-3 {
+    top: 40%;
+    right: 25%;
+    width: 30vw;
+    height: 30vw;
+    background-color: var(--accent-color);
+    animation: float3 20s infinite ease-in-out;
+  }
+  
+  @keyframes float1 {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(-5vw, 5vh); }
+    100% { transform: translate(0, 0); }
+  }
+  
+  @keyframes float2 {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(5vw, -3vh); }
+    100% { transform: translate(0, 0); }
+  }
+  
+  @keyframes float3 {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(-3vw, -2vh); }
+    100% { transform: translate(0, 0); }
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .form-wrapper {
+      max-width: 92%;
+      padding: 1.2rem;
+    }
+    
+    .form-header h2 {
+      font-size: 1.5rem;
+    }
+    
+    .btn-send-otp,
+    .btn-verify-otp,
+    .btn-resend-otp-inline {
+      font-size: 0.75rem;
+      padding: 0.35rem 0.7rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .form-wrapper {
+      padding: 1rem;
+      border-radius: 12px;
+    }
+    
+    .input-group input,
+    .country-code {
+      font-size: 0.9rem;
+    }
+    
+    .btn-signup {
+      padding: 0.8rem;
+    }
+    
+    .color-overlay-1 {
+      width: 70vw;
+      height: 70vw;
+    }
+    
+    .color-overlay-2 {
+      width: 80vw;
+      height: 80vw;
+    }
+  }
+  
+  /* Animation for form elements */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .form-group {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+  
+  .form-group:nth-child(1) { animation-delay: 0.1s; }
+  .form-group:nth-child(2) { animation-delay: 0.2s; }
+  .form-group:nth-child(3) { animation-delay: 0.3s; }
+  .form-group:nth-child(4) { animation-delay: 0.4s; }
+  .btn-signup { animation: fadeIn 0.5s ease-out forwards; animation-delay: 0.5s; }

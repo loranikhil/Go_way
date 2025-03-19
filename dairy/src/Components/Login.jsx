@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Login.css';
+import './Login.css'; 
 
 const Login = () => {
   const navigate = useNavigate();
@@ -11,8 +11,7 @@ const Login = () => {
     formErrors: {
       mobileNumber: '',
       otp: ''
-    },
-    userNotFound: false
+    }
   });
 
   const validateMobileNumber = (mobileNumber) => {
@@ -28,22 +27,8 @@ const Login = () => {
       formErrors: {
         ...prevState.formErrors,
         [name]: ''
-      },
-      userNotFound: false
+      }
     }));
-  };
-
-  const checkUserExists = (mobileNumber) => {
-    const userAuth = localStorage.getItem('userAuth');
-    if (!userAuth) return false;
-    
-    try {
-      const userData = JSON.parse(userAuth);
-      return userData.mobileNumber === mobileNumber;
-    } catch (e) {
-      console.error('Error parsing user auth data:', e);
-      return false;
-    }
   };
 
   const handleSendOtp = (e) => {
@@ -59,19 +44,20 @@ const Login = () => {
       return;
     }
 
-    if (!checkUserExists(formState.mobileNumber)) {
+    const userAuth = JSON.parse(localStorage.getItem('userAuth'));
+    if (!userAuth || userAuth.mobileNumber !== formState.mobileNumber) {
       setFormState(prevState => ({
         ...prevState,
-        userNotFound: true,
         formErrors: {
           ...prevState.formErrors,
-          mobileNumber: 'No account found with this mobile number. Please sign up first.'
+          mobileNumber: 'Mobile number not registered. Please sign up first.'
         }
       }));
       return;
     }
 
     console.log(`Sending OTP to ${formState.mobileNumber}`);
+    console.log('Any 6-digit OTP will work for login');
     
     setFormState(prevState => ({
       ...prevState,
@@ -79,7 +65,7 @@ const Login = () => {
     }));
   };
 
-  const handleLogin = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const errors = {};
     
@@ -89,9 +75,6 @@ const Login = () => {
     
     if (formState.otp.length !== 6) {
       errors.otp = 'Please enter a valid 6-digit OTP';
-    }
-    
-    if (Object.keys(errors).length > 0) {
       setFormState(prevState => ({
         ...prevState,
         formErrors: {
@@ -102,23 +85,38 @@ const Login = () => {
       return;
     }
 
-    console.log(`Verifying OTP: ${formState.otp}`);
-    console.log('Login successful');
+    const userAuth = JSON.parse(localStorage.getItem('userAuth'));
+    if (!userAuth || userAuth.mobileNumber !== formState.mobileNumber) {
+      errors.mobileNumber = 'Mobile number not registered. Please sign up first.';
+      setFormState(prevState => ({
+        ...prevState,
+        formErrors: {
+          ...prevState.formErrors,
+          ...errors
+        }
+      }));
+      return;
+    }
 
-    localStorage.setItem('isLoggedIn', 'true');
+    console.log('User logged in successfully:', formState.mobileNumber);
 
-    navigate('/dashboard');
+    localStorage.setItem('currentUser', JSON.stringify({
+      mobileNumber: formState.mobileNumber,
+      loggedInAt: new Date().toISOString()
+    }));
+
+    navigate('/Home');
   };
 
   return (
     <div className="login-container">
       <div className="form-wrapper">
         <div className="form-header">
-          <h2>Login to Your Account</h2>
-          <p>Welcome back! Please login to continue</p>
+          <h2>Login</h2>
+          <p>Welcome back!</p>
         </div>
 
-        <form className="login-form" onSubmit={handleLogin}>
+        <form className="login-form" onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="mobileNumber">Mobile Number</label>
             <div className="input-group">
@@ -127,13 +125,13 @@ const Login = () => {
                 type="tel"
                 id="mobileNumber"
                 name="mobileNumber"
-                placeholder="Enter your registered number"
+                placeholder="Enter 10 digits"
                 value={formState.mobileNumber}
                 onChange={handleInputChange}
                 maxLength="10"
                 required
               />
-              {!formState.otpSent ? (
+              {!formState.otpSent && (
                 <button 
                   type="button"
                   className="btn-send-otp" 
@@ -141,7 +139,8 @@ const Login = () => {
                 >
                   Send OTP
                 </button>
-              ) : (
+              )}
+              {formState.otpSent && (
                 <button 
                   type="button"
                   className="btn-resend-otp-inline" 
@@ -156,24 +155,26 @@ const Login = () => {
             )}
           </div>
 
-          {formState.otpSent && (
-            <div className="form-group">
-              <label htmlFor="otp">OTP Verification</label>
-              <input
-                type="text"
-                id="otp"
-                name="otp"
-                placeholder="Enter 6-digit OTP"
-                value={formState.otp}
-                onChange={handleInputChange}
-                maxLength="6"
-                required
-              />
-              {formState.formErrors.otp && (
-                <span className="error">{formState.formErrors.otp}</span>
-              )}
-            </div>
-          )}
+          <div className="form-group">
+            <label htmlFor="otp">OTP Verification</label>
+            <input
+              type="text"
+              id="otp"
+              name="otp"
+              placeholder="Enter 6-digit OTP"
+              value={formState.otp}
+              onChange={handleInputChange}
+              maxLength="6"
+              disabled={!formState.otpSent}
+              required
+            />
+            {formState.formErrors.otp && (
+              <span className="error">{formState.formErrors.otp}</span>
+            )}
+            {formState.otpSent && (
+              <span className="otp-hint">Enter any 6-digit OTP to login</span>
+            )}
+          </div>
 
           <button 
             type="submit" 
