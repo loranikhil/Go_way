@@ -1,0 +1,10 @@
+.loading-gif {
+    width: 100%;
+    height: auto;
+    max-width: 900px;  
+    max-height: 900px; 
+    display: block;
+    margin: 0 auto; 
+    object-fit: contain; 
+  }
+  

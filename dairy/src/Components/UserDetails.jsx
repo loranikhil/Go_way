@@ -59,7 +59,7 @@ const UserDetails = () => {
   };
 
   const validateAadhar = (aadhar) => {
-    // Basic Aadhar validation - 12 digits
+   
     const regex = /^\d{12}$/;
     return regex.test(aadhar);
   };
@@ -132,17 +132,17 @@ const UserDetails = () => {
   };
 
   return (
-    <div className="userdetails-container">
-      <div className="form-wrapper">
-        <div className="form-header">
-          <h2>Complete Your Profile</h2>
-          <p>Please fill in all required details to complete your registration</p>
+    <div className="user-profile-container">
+      <div className="user-profile__form-wrapper">
+        <div className="user-profile__header">
+          <h2 className="user-profile__title">Complete Your Profile</h2>
+          <p className="user-profile__subtitle">Please fill in all required details to complete your registration</p>
         </div>
 
-        <form className="userdetails-form" onSubmit={handleSubmit}>
-          <div className="form-row">
-            <div className="form-group">
-              <label htmlFor="firstName">First Name <span className="required">*</span></label>
+        <form className="user-profile__form" onSubmit={handleSubmit}>
+          <div className="user-profile__form-row">
+            <div className="user-profile__form-group">
+              <label htmlFor="firstName" className="user-profile__label">First Name <span className="user-profile__required">*</span></label>
               <input
                 type="text"
                 id="firstName"
@@ -150,12 +150,13 @@ const UserDetails = () => {
                 placeholder="Enter your first name"
                 value={formData.firstName}
                 onChange={handleInputChange}
+                className="user-profile__input"
               />
-              {formErrors.firstName && <span className="error">{formErrors.firstName}</span>}
+              {formErrors.firstName && <span className="user-profile__error">{formErrors.firstName}</span>}
             </div>
 
-            <div className="form-group">
-              <label htmlFor="lastName">Last Name <span className="required">*</span></label>
+            <div className="user-profile__form-group">
+              <label htmlFor="lastName" className="user-profile__label">Last Name <span className="user-profile__required">*</span></label>
               <input
                 type="text"
                 id="lastName"
@@ -163,13 +164,14 @@ const UserDetails = () => {
                 placeholder="Enter your last name"
                 value={formData.lastName}
                 onChange={handleInputChange}
+                className="user-profile__input"
               />
-              {formErrors.lastName && <span className="error">{formErrors.lastName}</span>}
+              {formErrors.lastName && <span className="user-profile__error">{formErrors.lastName}</span>}
             </div>
           </div>
 
-          <div className="form-group">
-            <label htmlFor="email">Email Address <span className="required">*</span></label>
+          <div className="user-profile__form-group">
+            <label htmlFor="email" className="user-profile__label">Email Address <span className="user-profile__required">*</span></label>
             <input
               type="email"
               id="email"
@@ -177,30 +179,33 @@ const UserDetails = () => {
               placeholder="Enter your email address"
               value={formData.email}
               onChange={handleInputChange}
+              className="user-profile__input"
             />
-            {formErrors.email && <span className="error">{formErrors.email}</span>}
+            {formErrors.email && <span className="user-profile__error">{formErrors.email}</span>}
           </div>
 
-          <div className="form-row">
-            <div className="form-group">
-              <label htmlFor="dateOfBirth">Date of Birth <span className="required">*</span></label>
+          <div className="user-profile__form-row">
+            <div className="user-profile__form-group">
+              <label htmlFor="dateOfBirth" className="user-profile__label">Date of Birth <span className="user-profile__required">*</span></label>
               <input
                 type="date"
                 id="dateOfBirth"
                 name="dateOfBirth"
                 value={formData.dateOfBirth}
                 onChange={handleInputChange}
+                className="user-profile__input"
               />
-              {formErrors.dateOfBirth && <span className="error">{formErrors.dateOfBirth}</span>}
+              {formErrors.dateOfBirth && <span className="user-profile__error">{formErrors.dateOfBirth}</span>}
             </div>
 
-            <div className="form-group">
-              <label htmlFor="gender">Gender <span className="required">*</span></label>
+            <div className="user-profile__form-group">
+              <label htmlFor="gender" className="user-profile__label">Gender <span className="user-profile__required">*</span></label>
               <select
                 id="gender"
                 name="gender"
                 value={formData.gender}
                 onChange={handleInputChange}
+                className="user-profile__select"
               >
                 <option value="">Select gender</option>
                 <option value="male">Male</option>
@@ -208,12 +213,12 @@ const UserDetails = () => {
                 <option value="other">Other</option>
                 <option value="prefer-not-to-say">Prefer not to say</option>
               </select>
-              {formErrors.gender && <span className="error">{formErrors.gender}</span>}
+              {formErrors.gender && <span className="user-profile__error">{formErrors.gender}</span>}
             </div>
           </div>
 
-          <div className="form-group">
-            <label htmlFor="address">Current Address <span className="required">*</span></label>
+          <div className="user-profile__form-group">
+            <label htmlFor="address" className="user-profile__label">Current Address <span className="user-profile__required">*</span></label>
             <textarea
               id="address"
               name="address"
@@ -221,22 +226,24 @@ const UserDetails = () => {
               value={formData.address}
               onChange={handleInputChange}
               rows="3"
+              className="user-profile__textarea"
             ></textarea>
-            {formErrors.address && <span className="error">{formErrors.address}</span>}
+            {formErrors.address && <span className="user-profile__error">{formErrors.address}</span>}
           </div>
 
-          <div className="checkbox-group">
+          <div className="user-profile__checkbox-group">
             <input
               type="checkbox"
               id="sameAddress"
               checked={addressSame}
               onChange={handleCheckboxChange}
+              className="user-profile__checkbox"
             />
-            <label htmlFor="sameAddress">Permanent address same as current address</label>
+            <label htmlFor="sameAddress" className="user-profile__checkbox-label">Permanent address same as current address</label>
           </div>
 
-          <div className="form-group">
-            <label htmlFor="permanentAddress">Permanent Address <span className="required">*</span></label>
+          <div className="user-profile__form-group">
+            <label htmlFor="permanentAddress" className="user-profile__label">Permanent Address <span className="user-profile__required">*</span></label>
             <textarea
               id="permanentAddress"
               name="permanentAddress"
@@ -245,12 +252,13 @@ const UserDetails = () => {
               onChange={handleInputChange}
               rows="3"
               disabled={addressSame}
+              className="user-profile__textarea"
             ></textarea>
-            {formErrors.permanentAddress && <span className="error">{formErrors.permanentAddress}</span>}
+            {formErrors.permanentAddress && <span className="user-profile__error">{formErrors.permanentAddress}</span>}
           </div>
 
-          <div className="form-group">
-            <label htmlFor="aadharNumber">Aadhar Number <span className="required">*</span></label>
+          <div className="user-profile__form-group">
+            <label htmlFor="aadharNumber" className="user-profile__label">Aadhar Number <span className="user-profile__required">*</span></label>
             <input
               type="text"
               id="aadharNumber"
@@ -262,16 +270,17 @@ const UserDetails = () => {
                 handleInputChange({ target: { name: 'aadharNumber', value } });
               }}
               maxLength="12"
+              className="user-profile__input"
             />
-            {formErrors.aadharNumber && <span className="error">{formErrors.aadharNumber}</span>}
+            {formErrors.aadharNumber && <span className="user-profile__error">{formErrors.aadharNumber}</span>}
           </div>
 
-          <div className="form-actions">
-            <button type="button" className="btn-back" onClick={() => navigate('/signup')}>
+          <div className="user-profile__actions">
+            <button type="button" className="user-profile__btn-back" onClick={() => navigate('/signup')}>
               Back
             </button>
-            <button type="submit" className="btn-submit">
-              Complete Registration
+            <button type="submit" className="user-profile__btn-submit">
+              Register
             </button>
           </div>
         </form>
