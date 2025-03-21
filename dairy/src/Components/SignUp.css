@@ -30,7 +30,10 @@ body {
   margin-bottom: 20px;
   position: relative;
 }
-
+.logo-container img{
+  height: 140px;
+  width: 140px;
+}
 .app-logo {
   position: relative;
   width: 100px;
@@ -40,81 +43,6 @@ body {
   align-items: center;
 }
 
-.go-logo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-
-.go-circle {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background-color: #000000;
-  position: relative;
-}
-
-.go-seed {
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  background-color: white;
-  border-radius: 50%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.go-top-left {
-  top: 30%;
-  left: 30%;
-}
-
-.go-top-right {
-  top: 30%;
-  left: 70%;
-}
-
-.go-bottom-left {
-  top: 70%;
-  left: 30%;
-}
-
-.go-bottom-right {
-  top: 70%;
-  left: 70%;
-}
-
-.go-middle-right {
-  top: 50%;
-  left: 80%;
-}
-
-.go-middle-bottom {
-  top: 80%;
-  left: 50%;
-}
-
-.yellow-dot {
-  position: absolute;
-  background-color: #ffd900;
-  border-radius: 50%;
-}
-
-.small-dot {
-  width: 15px;
-  height: 15px;
-  top: 20%;
-  right: 10%;
-}
-
-.large-dot {
-  width: 25px;
-  height: 25px;
-  top: 15%;
-  right: 25%;
-}
 
 
 .form-wrapper {
@@ -214,12 +142,12 @@ body {
 }
 
 .otp-input-box.filled {
-  border-color: #FFDA3C;
+  border-color: #77e61c;
   background-color: #FFFBEA;
 }
 
 .otp-input-box.active {
-  border-color: #FFDA3C;
+  border-color: #77e61c;
   box-shadow: 0 0 0 2px rgba(255, 218, 60, 0.2);
 }
 
@@ -273,7 +201,7 @@ body {
 
 .btn-send-otp {
   padding: 0 15px;
-  background-color: #f5d239;
+  background-color: #77e61c;
   color: #333333;
   border: none;
   cursor: pointer;
@@ -296,7 +224,7 @@ body {
 
 .btn-verify-otp {
   padding: 5px 10px;
-  background-color: #FFDA3C;
+  background-color: #77e61c;
   color: #333333;
   border: none;
   border-radius: 4px;
@@ -338,7 +266,7 @@ body {
 .btn-signup {
   width: 100%;
   padding: 15px;
-  background-color: #FFDA3C;
+  background-color: #77e61c;
   color: #333333;
   border: none;
   border-radius: 10px;
@@ -350,7 +278,7 @@ body {
 }
 
 .btn-signup:hover {
-  background-color: #FFD000;
+  background-color: #6fdd08;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -367,7 +295,7 @@ body {
 }
 
 .login-option a {
-  color: #FFDA3C;
+  color: #77e61c;
   text-decoration: none;
   font-weight: 600;
 }
@@ -415,6 +343,6 @@ body {
 }
 
 input:focus {
-  border-color: #FFDA3C;
+  border-color: #77e61c;
   box-shadow: 0 0 0 2px rgba(255, 218, 60, 0.2);
 }

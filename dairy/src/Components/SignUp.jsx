@@ -150,21 +150,8 @@ const SignUp = () => {
     <LoadingGif>
       <div className="signup-container">
         <div className="logo-container">
-          <div className="app-logo">
-            <div className="go-logo">
-              <div className="go-circle">
-                <div className="go-seed"></div>
-                <div className="go-seed seed-top-left"></div>
-                <div className="go-seed seed-top-right"></div>
-                <div className="go-seed seed-bottom-left"></div>
-                <div className="go-seed seed-bottom-right"></div>
-                <div className="go-seed seed-middle-right"></div>
-                <div className="go-seed seed-middle-bottom"></div>
-              </div>
-            </div>
-            <div className="yellow-dot small-dot"></div>
-            <div className="yellow-dot large-dot"></div>
-          </div>
+        
+        <img src="https://i.ibb.co/qLJxs2Yd/2-removebg-preview.png" alt="GoWay" />
         </div>
         
         <div className="form-wrapper">  

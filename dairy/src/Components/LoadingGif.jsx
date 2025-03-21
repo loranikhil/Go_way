@@ -16,7 +16,7 @@ const LoadingGif = ({ children }) => {
     <div>
       {isLoading ? (
         <img
-          src="/public/bike.gif"
+          src="/bike.gif"
           alt="Loading..."
           className="loading-gif" 
         />

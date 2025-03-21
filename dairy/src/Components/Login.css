@@ -30,51 +30,6 @@
   align-items: center;
 }
 
-.go-logo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-
-.go-circle {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background-color: #000000;
-  position: relative;
-}
-
-.go-seed {
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  background-color: white;
-  border-radius: 50%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.yellow-dot {
-  position: absolute;
-  background-color: #ffd900;
-  border-radius: 50%;
-}
-
-.small-dot {
-  width: 15px;
-  height: 15px;
-  top: 20%;
-  right: 10%;
-}
-
-.large-dot {
-  width: 25px;
-  height: 25px;
-  top: 15%;
-  right: 25%;
-}
 
 .form-wrapper {
   width: 100%;
@@ -171,12 +126,12 @@
 }
 
 .otp-input-box.filled {
-  border-color: #FFDA3C;
+  border-color: #77e61c;
   background-color: #FFFBEA;
 }
 
 .otp-input-box.active {
-  border-color: #FFDA3C;
+  border-color: #77e61c;
   box-shadow: 0 0 0 2px rgba(255, 218, 60, 0.2);
 }
 
@@ -189,7 +144,7 @@
 
 .btn-send-otp {
   padding: 0 15px;
-  background-color: #f5d239;
+  background-color: #77e61c;
   color: #333333;
   border: none;
   cursor: pointer;
@@ -220,7 +175,7 @@
 .btn-login {
   width: 100%;
   padding: 15px;
-  background-color: #FFDA3C;
+  background-color: #77e61c;
   color: #333333;
   border: none;
   border-radius: 10px;
@@ -232,7 +187,7 @@
 }
 
 .btn-login:hover {
-  background-color: #FFD000;
+  background-color: #77e61c;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -249,7 +204,7 @@
 }
 
 .signup-option a {
-  color: #FFDA3C;
+  color: #77e61c;
   text-decoration: none;
   font-weight: 600;
 }
@@ -297,6 +252,6 @@
 }
 
 input:focus {
-  border-color: #FFDA3C;
+  border-color: #77e61c;
   box-shadow: 0 0 0 2px rgba(255, 218, 60, 0.2);
 }

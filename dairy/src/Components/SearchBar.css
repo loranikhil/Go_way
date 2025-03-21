@@ -1,0 +1,171 @@
+.search-section {
+    padding: 16px;
+    background-color: var(--white);
+  }
+
+  
+.search-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 16px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+
+  .search-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+ 
+  .input-container {
+    position: relative;
+    width: 100%;
+  }
+  
+  .input-wrapper {
+    display: flex;
+    align-items: center;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #f9f9f9;
+    transition: all 0.2s ease;
+  }
+  
+  .input-wrapper:focus-within {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+  }
+  
+  .input-icon {
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6b7280;
+  }
+  
+  .icon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .location-input {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    outline: none;
+    background-color: #f9f9f9;
+    font-size: 16px;
+  }
+  
+  .location-input::placeholder {
+    color: #9ca3af;
+  }
+
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  @media (min-width: 640px) {
+    .button-container {
+      flex-direction: row;
+    }
+  }
+  
+  .search-button {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    color: #ffffff;
+  }
+  
+  .rider-button {
+    background-color: #54aa2c;
+  }
+  
+  .rider-button:hover {
+    background-color: #4b8d31;
+  }
+  
+  .passenger-button {
+    background-color: #eeb108;
+  }
+  
+  .passenger-button:hover {
+    background-color: #c9ac2c;
+  }
+  
+  .button-icon {
+    margin-right: 8px;
+  }
+  
+
+  .recent-searches {
+    position: absolute;
+    top: calc(100% - 8px);
+    left: 0px;
+    right: 0px;
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .recent-header {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    background-color: #f9fafb;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  .recent-icon {
+    color: #6b7280;
+    margin-right: 8px;
+  }
+  
+  .recent-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: #4b5563;
+  }
+  
+  .recent-list {
+    max-height: 240px;
+    overflow-y: auto;
+  }
+  
+  .recent-item {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    cursor: pointer;
+    border-bottom: 1px solid #f3f4f6;
+  }
+  
+  .recent-item:hover {
+    background-color: #f9fafb;
+  }
+  
+  .recent-item-icon {
+    color: #9ca3af;
+    margin-right: 12px;
+  }
